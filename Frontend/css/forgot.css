@@ -1,0 +1,130 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+   background-color: #4c0013; 
+  color: #2e1a0f;  
+  line-height: 1.6;
+}
+
+/* Container */
+.container {
+   max-width: 500px;
+  margin: 40px auto;
+  padding: 20px;  
+  background: #ffffe7;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.logo {
+  display: block;        
+  max-width: 200px;       
+  width: 100%;             
+  height: auto;           
+  margin: 0 auto;
+}
+label{
+  display: block;
+  font-weight: bold;
+}
+input {
+  padding: 10px;
+  border: 1px solid #d9cfc2;
+  border-radius: 6px;
+  font-size: 1rem;
+  width: 100%;
+}
+
+input:focus {
+  outline: none;
+  border-color: #4b2e19;
+  box-shadow: 0 0 5px rgba(75,46,25,0.4);
+}
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Form Group */
+.form-group {
+  margin-bottom: 20px;
+  position: relative;
+  text-align: left;
+}
+/* ====== Validation States ====== */
+.form-group .error-message {
+  color: #dc3545;
+  font-size: 0.85rem;
+  margin-top: 4px;
+  display: block;
+  min-height: 20px; 
+} 
+
+.form-group input.is-valid {
+  border-color: #28a745;
+}
+
+.form-group input.is-invalid {
+  border-color: #dc3545;
+}
+
+/* ====== Button====== */
+button {
+  background-color: #4c0013;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 12px;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+button:hover {
+ background-color: #4b0315e7;
+}
+.redirect-text {
+  margin-top: 10px;
+}
+/* Password Container */
+.password-container {
+  position: relative;
+}
+
+.password-toggle-icon {
+  position: absolute;
+  align-items: center;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #666;
+  font-size: 16px;
+}
+
+.password-container input[type="password"],
+.password-container input[type="text"] {
+  padding: 10px 40px 10px 10px; /* Padding for right icon */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.password-toggle-icon.fa-eye-slash {
+  color: #999;
+}
+
+
+
+/* Input Validation Styles */
+.form-group input.is-valid {
+  border-color: #28a745;
+}
+
+.form-group input.is-invalid {
+  border-color: #dc3545;
+}

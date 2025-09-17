@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LSEI Smart Attendance - Dashboard</title>
+  <link rel="stylesheet" href="./css/profile.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <div class="dashboard-layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h2>LSEI</h2>
+      </div>
+      <ul class="sidebar-links">
+        <li><a href="dashboard.html" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
+        <li><a href="attendance.html"><i class="fas fa-calendar-check"></i> Attendance</a></li>
+        <!-- <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li> -->
+        <li><a href="index.html" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Topbar -->
+      <header class="topbar">
+        <h2>Welcome, <span id="userName"></span> 👋</h2>
+        <p class="subtitle">Smart Attendance Dashboard</p>
+      </header>
+
+      <!-- Dashboard Widgets -->
+      <section class="cards-grid">
+        <div class="card">
+          <div class="card-icon"><i class="fas fa-calendar-plus"></i></div>
+          <h3>Mark Attendance</h3>
+          <p>Click here to check in for today’s class.</p>
+          <a href="attendance.html" class="btn">Go</a>
+        </div>
+
+        <div class="card">
+          <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+          <h3>View Records</h3>
+          <p>See your past attendance history and statistics.</p>
+          <a href="attendance.html" class="btn">Go</a>
+        </div>
+
+        <!-- <div class="card">
+          <div class="card-icon"><i class="fas fa-user-circle"></i></div>
+          <h3>Profile</h3>
+          <p>Update your personal details and password.</p>
+          <a href="profile.html" class="btn">Go</a>
+        </div> -->
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

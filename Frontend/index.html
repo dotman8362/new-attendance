@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LSEI Smart Attendance - Login</title>
+  <link rel="stylesheet" href="./css/login.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  
+
+</head>
+<body>
+  <div class="container">
+    <img src="./LSEI LOGO.png" class="logo" alt="lautech-logo">
+    <h1 class="title">Login for LSEI Smart Attendance</h1>
+    <form id="loginForm" class="form">
+      <div class="form-group">
+        <label for="email">Student ID</label>
+        <input type="text" id="studentID" name="studentID" placeholder="LSEI/SIWES/2025/">
+        <small class="error-message"></small>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password">
+        <small class="error-message"></small>
+      </div>
+
+      <button type="submit" class="btn">Login</button>
+      <p class="redirect-text">Don’t have an account? <a href="register.html">Register here</a></p>
+    </form>
+  </div>
+
+  <script src="../js/login.js"></script>
+</body>
+</html>

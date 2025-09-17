@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title> LSEI Admin Attendance Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #d9bbc2;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      color: #333;
+    }
+    .filters, .actions {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    input, button {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      cursor: pointer;
+      background: #4c0013;
+      color: white;
+      border: none;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #4c0013;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #4c0013;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background: #f1f1f1;
+    }
+    tr:hover {
+      background: #f9f9f9;
+    }
+    .no-data {
+      color: gray;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <img src="./LSEI LOGO.png" width="100px" alt="">
+
+  <h1>LSEI Admin Attendance Dashboard</h1>
+
+  <!-- Filters -->
+  <div class="filters">
+    <input type="date" id="dateInput">
+    <input type="text" id="studentIdInput" placeholder="Enter Student ID">
+    <button onclick="fetchReport()">Fetch Report</button>
+  </div>
+
+  <!-- Export -->
+  <div class="actions">
+    <button onclick="downloadReport('excel')">📥 Export Excel</button>
+    <button onclick="downloadReport('pdf')">📥 Export PDF</button>
+  </div>
+
+  <!-- Table -->
+  <table id="attendanceTable">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Student ID</th>
+        <th>Full Name</th>
+        <th>Date</th>
+        <th>Sign In</th>
+        <th>Sign Out</th>
+        <th>IP Address</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td colspan="7" class="no-data">No records found.</td></tr>
+    </tbody>
+  </table>
+
+  <script>
+    async function fetchReport() {
+      const date = document.getElementById("dateInput").value;
+      const studentId = document.getElementById("studentIdInput").value;
+
+      let query = [];
+      if (date) query.push(`date=${date}`);
+      if (studentId) query.push(`studentId=${studentId}`);
+      const url = `api/attendance/report?${query.join("&")}`;
+
+      try {
+        const res = await fetch(url);
+        const data = await res.json();
+
+        if (res.ok && data.records.length > 0) {
+          renderTable(data.records);
+        } else {
+          renderTable([]);
+          alert(data.msg || "No records found");
+        }
+      } catch (err) {
+        console.error(err);
+        alert("Error fetching report");
+      }
+    }
+
+    function renderTable(records) {
+      const tbody = document.querySelector("#attendanceTable tbody");
+      tbody.innerHTML = "";
+
+      if (records.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="7" class="no-data">No records found.</td></tr>`;
+        return;
+      }
+
+      records.forEach((r, i) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${i + 1}</td>
+          <td>${r.studentId.studentId}</td>
+          <td>${r.studentId.fullname}</td>
+          <td>${r.date}</td>
+          <td>${r.signInTime ? new Date(r.signInTime).toLocaleString() : "N/A"}</td>
+          <td>${r.signOutTime ? new Date(r.signOutTime).toLocaleString() : "N/A"}</td>
+          <td>${r.ipAddress}</td>
+        `;
+        tbody.appendChild(row);
+      });
+    }
+
+    function downloadReport(type) {
+      const date = document.getElementById("dateInput").value;
+      const studentId = document.getElementById("studentIdInput").value;
+
+      let query = [];
+      if (date) query.push(`date=${date}`);
+      if (studentId) query.push(`studentId=${studentId}`);
+      query.push(`export=${type}`);
+
+      const url = `/attendance/report?${query.join("&")}`;
+      window.open(url, "_blank"); // triggers file download
+    }
+  </script>
+
+</body>
+</html>

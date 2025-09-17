@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LSEI Smart Attendance - Register</title>
+  <link rel="stylesheet" href="./css/register.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="shortcut icon" href="../public/LSEI LOGO.png" type="image/x-icon">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+<body>
+  <div class="container">
+    <img src="./LSEI LOGO.png" class="logo" alt="lautech-logo">
+    <h1 class="title">Register for LSEI Smart Attendance</h1>
+    <form id="registerForm" class="form">
+
+      <div class="form-group">
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" name="fullname" placeholder="Enter full name">
+        <small class="error-message"></small>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email" placeholder="Enter your email">
+        <small class="error-message"></small>
+      </div>
+
+
+      <div class="form-group password-container">
+        <label for="password">Password</label>
+        <i class="fas fa-eye password-toggle-icon" id="passwordToggle"></i>
+        <input type="password" id="password" name="password" placeholder="Create a password">
+        <small class="error-message"></small>
+    </div>
+
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Re-enter password">
+        <small class="error-message"></small>
+      </div>
+
+      <button type="submit" class="btn">Register</button>
+      <p class="redirect-text">Already have an account? <a href="index.html">Login here</a></p>
+    </form>
+  </div>
+
+  <script src="../js/register.js"></script>
+</body>
+</html>
