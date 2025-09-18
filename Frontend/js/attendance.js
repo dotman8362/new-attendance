@@ -70,12 +70,12 @@ function getAttendanceType() {
     const minutes = now.getMinutes();
 
     // Morning: 10:00 - 10:30
-    if (hour === 14 && minutes >= 0 && minutes <= 30) {
+    if (hour === 15 && minutes >= 0 && minutes <= 30) {
         return 'morning';
     }
 
     // Afternoon: 14:00 - 14:30
-    if (hour === 15 && minutes >= 0 && minutes <= 30) {
+    if (hour === 16 && minutes >= 0 && minutes <= 30) {
         return 'afternoon';
     }
 
